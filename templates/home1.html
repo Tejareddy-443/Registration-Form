@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SkyWing Restaurant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: white;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+        }
+
+        nav h2 {
+            color: orange;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        nav ul li a:hover {
+            color: orange;
+        }
+
+        .btn {
+            background-color: orange;
+            padding: 8px 15px;
+            border-radius: 4px;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 60px;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            margin-bottom: 25px;
+            color: #ccc;
+        }
+
+        .hero-text button {
+            padding: 12px 25px;
+            background-color: orange;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hero-text button:hover {
+            background-color: darkorange;
+        }
+
+        .hero-image img {
+            width: 600px;
+            border-radius: 50%;
+            height: 400;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text, .hero-image {
+                width: 100%;
+            }
+
+            .hero-image img {
+                margin-top: 30px;
+                width: 300px;
+            }
+        }
+        /* Footer */
+footer {
+    background-color: #0b1120;
+    padding: 50px 60px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-box {
+    width: 30%;
+}
+
+.footer-box h3 {
+    color: orange;
+    margin-bottom: 15px;
+}
+
+.footer-box p, 
+.footer-box a {
+    color: #ccc;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.footer-box a:hover {
+    color: orange;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    color: #aaa;
+    font-size: 13px;
+}
+
+/* Responsive Footer */
+@media(max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h2>🍴 SkyWing</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="btn">Book a Table</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Enjoy Our <br> Delicious Meal</h1>
+            <p>
+                Experience the finest flavors crafted with passion and tradition.
+                Fresh ingredients, expert chefs, and unforgettable taste.
+            </p>
+            <button>Book A Table</button>
+        </div>
+
+        <div class="hero-image">
+            <!-- Replace with your food image -->
+            <img src="data:image/webp;base64,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" alt="Food" width="500" height="250">
+        </div>
+    </section>
+    <section>
+    <footer>
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>SkyWing Restaurant</h3>
+            <p>Experience the finest flavors with quality ingredients and expert chefs.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="#">Home</a><br>
+            <a href="#">About</a><br>
+            <a href="#">Menu</a><br>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p>📍 Wayanad, Kerala</p>
+            <p>📞 +91 8456324568</p>
+            <p>📧 skywingrestaurant@gmail.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 SkyWing Restaurant | All Rights Reserved
+    </div>
+</footer>
+</section>
+</body>
+</html>
