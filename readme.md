@@ -1,40 +1,45 @@
-📝 Registration Form with Flask & MySQL
-Overview
+# Registration Form with Flask & MySQL
 
-This project is a user registration system built using HTML, Flask (Python), and MySQL. Users can:
+## Overview
 
-Fill a registration form
+This project is a **user registration system** built using **HTML**, **Flask (Python)**, and **MySQL**. Users can:
 
-Submit their details
+- Fill a registration form
+- Submit their details
+- Store the data in a **MySQL database**
+- View all registered users in a **table format** after successful registration
 
-Store the data in a MySQL database
+---
 
-View all registered users in a table format
+## Features
 
-Features
+1. **User Registration**  
+   - Collects Name, Email, Password, and Confirm Password from users.
+   - Validates that passwords match before saving.
 
-User Registration
+2. **Database Storage**  
+   - Uses MySQL to store registered users.
+   - Uses parameterized queries to prevent SQL injection.
 
-Collects Name, Email, Password, and Confirm Password from users.
+3. **Display Registered Users**  
+   - Shows all users in a clean table format after registration.
 
-Validates that passwords match.
+---
 
-Database Storage
+## Technologies Used
 
-Uses MySQL to store registered users.
+- **Frontend:** HTML, CSS
+- **Backend:** Python, Flask
+- **Database:** MySQL
+- **Template Engine:** Jinja2 (for dynamic HTML rendering)
 
-Prevents plain SQL injection using parameterized queries.
+---
 
-Display Registered Users
+## Installation
 
-Shows all users in a clean table format after registration.
+1. **Clone or download this repository**
 
-Technologies Used
-
-Frontend: HTML, CSS
-
-Backend: Python, Flask
-
-Database: MySQL
+```bash
+git clone https://github.com/Tejareddy-443/Registration-Form.git
 
 Template Engine: Jinja2 (for dynamic HTML rendering)
