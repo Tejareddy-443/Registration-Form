@@ -192,16 +192,16 @@ footer {
    <!-- Navbar -->
 <nav>
     <div class="logo">
-        <img src="Logo.png" alt="SkyWing Logo">
+        <img src="{{ url_for('static', filename='Logo.png') }}" alt="SkyWing Logo">
         <h2>SkyWing</h2>
     </div>
     <ul>
         <li><h3 style="color: white;"><b>Delicious Food & Great Service</b></h3></li>
     </ul>
     <ul>
-        <li><a href="Login.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="Menu.html">Menu</a></li>
+        <li><a href="/menu">Menu</a></li>
         <li><a href="#">Pages</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#" class="btn">Book a Table</a></li>

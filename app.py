@@ -5,6 +5,9 @@ connection=conn.connect(host="localhost",user="root",password="Tejareddy1341",da
 @app.route('/')
 def home():
     return render_template("Home.html")
+@app.route('/menu')
+def menu():
+    return render_template("Menu.html")
 @app.route('/submit_registration',methods=['POST'])
 def registration():
     name=request.form['name']
@@ -16,8 +19,11 @@ def registration():
     cursor=connection.cursor()
     query="insert into users(name,email,password) values(%s,%s,%s)"
     cursor.execute(query,(name,email,password))
+    connection.commit()
     cursor.execute("select * from users")
     data=cursor.fetchall()
+    cursor.close()
+    connection.close()
     return render_template("users.html",data=data)
 if __name__=="__main__":
     app.run(debug=True)
