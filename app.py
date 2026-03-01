@@ -4,7 +4,7 @@ app=Flask(__name__)
 connection=conn.connect(host="localhost",user="root",password="Tejareddy1341",database="registered_users")
 @app.route('/')
 def home():
-    return render_template("home1.html")
+    return render_template("Home.html")
 @app.route('/submit_registration',methods=['POST'])
 def registration():
     name=request.form['name']
