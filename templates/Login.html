@@ -1,33 +1,240 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title style="color: chocolate;">Registration Form</title>
-</head>
-<body style="background-color: blanchedalmond;">
+<title>SkyWing - Table Reservation</title>
 
-    <h2 align="center" style="color:Blue;">Registration Form</h2>
-<form action="/submit_registration" method="post" style="color:black;">
-<table align="center" cellpadding="10" cellspacing="5" table border="1" style="background-color: azure;" width="50%" height="50%">
-    <tr>
-        <td>Name</td>
-        <td><input type="text" name="name" placeholder="Enter Your Name here"> </td>
-    </tr>
-    <tr>
-        <td>Email</td>
-        <td><input type="email" name="email" placeholder="Enter Your Email here"> </td> 
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td><input type="password" name="password" placeholder="Enter Your Password here"> </td>
-    </tr>
-    <tr>
-        <td>Confirm Password</td>
-        <td><input type="password" name="confirm_password" placeholder="Confirm Your Password here"> </td>
-    </tr>
-    <tr>
-        <td colspan="2" align="center"><input type="submit" value="Register"></td>
-    </tr>
-</table>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background-color:rgb(216,212,132);
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background-color:rgb(13,22,57);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    width:100px;
+    height:70px;
+    margin-right:10px;
+    background:#ddd;
+}
+
+.logo h2{
+    color:rgb(216,190,18);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+}
+
+nav ul li a:hover{
+    color:orange;
+}
+
+.btn{
+    background:orange;
+    padding:8px 15px;
+    border-radius:4px;
+    color:black;
+    font-weight:bold;
+}
+
+/* FORM SECTION */
+.form-section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.form-box{
+    background:white;
+    width:400px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+.form-box h2{
+    margin-bottom:20px;
+    color:brown;
+}
+
+.form-box input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form-box button{
+    width:100%;
+    padding:12px;
+    background:orange;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.form-box button:hover{
+    background:darkorange;
+}
+
+/* FOOTER */
+footer{
+    background:rgb(13,22,57);
+    padding:50px 60px 20px;
+    margin-top:50px;
+    color:#ccc;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.footer-box{
+    width:30%;
+}
+
+.footer-box h3{
+    color:orange;
+    margin-bottom:15px;
+}
+
+.footer-box a{
+    color:#ccc;
+    text-decoration:none;
+}
+
+.footer-box a:hover{
+    color:orange;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:30px;
+    padding-top:15px;
+    border-top:1px solid #333;
+    font-size:13px;
+}
+
+@media(max-width:768px){
+    .footer-container{
+        flex-direction:column;
+        text-align:center;
+    }
+    .footer-box{
+        width:100%;
+        margin-bottom:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<div class="logo">
+<img src="Logo.png" alt="SkyWing Logo">
+<h2>SkyWing</h2>
+</div>
+
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/menu">Menu</a></li>
+<li><a href="/gallery">Gallery</a></li>
+<li><a href="/offers">Offers</a></li>
+<li><a href="/hours">Hours & Location</a></li>
+<li><a href="/reviews">Reviews</a></li>
+<li><a href="/login" class="btn">Book a Table</a></li>
+</ul>
+</nav>
+
+<!-- FORM -->
+<section class="form-section">
+
+<div class="form-box">
+<h2>Book a Table</h2>
+
+<form action="/submit_registration" method="post">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email Address" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+<input type="date" name="date" required>
+<input type="time" name="time" required>
+<input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+<button type="submit">Reserve Now</button>
 </form>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>Contact Information</h3>
+<p>📍 Wayanad, Kerala</p>
+<p>📞 +91 8456324568</p>
+<p>📧 skywingrestaurant@gmail.com</p>
+</div>
+
+<div class="footer-box">
+<h3>Follow Us</h3>
+<a href="#">Instagram</a><br>
+<a href="#">Twitter</a><br>
+<a href="#">YouTube</a>
+</div>
+
+<div class="footer-box">
+<h3>Legal</h3>
+<a href="#">Privacy Policy</a><br>
+<a href="#">Terms & Conditions</a><br>
+<a href="#">Refund Policy</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 SkyWing Restaurant | All Rights Reserved
+</div>
+</footer>
+
 </body>
 </html>
