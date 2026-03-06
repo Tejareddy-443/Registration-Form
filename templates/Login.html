@@ -1,141 +1,239 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SkyWing - Online Payment</title>
+<title>SkyWing - Table Reservation</title>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
 body{
-background:rgb(216,212,132);
-font-family:Arial;
-margin:0;
+    background-color:rgb(216,212,132);
 }
 
-/* Center Box */
-.payment-container{
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background-color:rgb(13,22,57);
 }
 
-.payment-box{
-background:white;
-padding:40px;
-width:420px;
-border-radius:12px;
-box-shadow:0 0 20px rgba(0,0,0,0.3);
-text-align:center;
+.logo{
+    display:flex;
+    align-items:center;
 }
 
-.payment-box h2{
-color:brown;
-margin-bottom:20px;
+.logo img{
+    width:100px;
+    height:70px;
+    margin-right:10px;
+    background:#ddd;
 }
 
-.amount{
-color:green;
-font-size:20px;
-font-weight:bold;
-margin-bottom:20px;
+.logo h2{
+    color:rgb(216,190,18);
 }
 
-.option-btn{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:6px;
-font-weight:bold;
-cursor:pointer;
+nav ul{
+    list-style:none;
+    display:flex;
 }
 
-.upi{ background:orange; }
-.qr{ background:#2ecc71; color:white; }
-.card{ background:#3498db; color:white; }
-
-.option-btn:hover{
-opacity:0.85;
+nav ul li{
+    margin-left:25px;
 }
 
-.qr-box{
-margin-top:20px;
-display:none;
+nav ul li a{
+    text-decoration:none;
+    color:white;
 }
 
-.qr-box img{
-width:200px;
-height:200px;
+nav ul li a:hover{
+    color:orange;
+}
+
+.btn{
+    background:orange;
+    padding:8px 15px;
+    border-radius:4px;
+    color:black;
+    font-weight:bold;
+}
+
+/* FORM SECTION */
+.form-section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.form-box{
+    background:white;
+    width:400px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+.form-box h2{
+    margin-bottom:20px;
+    color:brown;
+}
+
+.form-box input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form-box button{
+    width:100%;
+    padding:12px;
+    background:orange;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.form-box button:hover{
+    background:rgb(33, 126, 7);
+}
+
+/* FOOTER */
+footer{
+    background:rgb(13,22,57);
+    padding:50px 60px 20px;
+    margin-top:50px;
+    color:#ccc;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.footer-box{
+    width:30%;
+}
+
+.footer-box h3{
+    color:orange;
+    margin-bottom:15px;
+}
+
+.footer-box a{
+    color:#ccc;
+    text-decoration:none;
+}
+
+.footer-box a:hover{
+    color:orange;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:30px;
+    padding-top:15px;
+    border-top:1px solid #333;
+    font-size:13px;
+}
+
+@media(max-width:768px){
+    .footer-container{
+        flex-direction:column;
+        text-align:center;
+    }
+    .footer-box{
+        width:100%;
+        margin-bottom:20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="payment-container">
-<div class="payment-box">
-
-<h2>Select Payment Method</h2>
-
-<div class="amount">
-Total Amount: ₹200
+<!-- NAVBAR -->
+<nav>
+<div class="logo">
+<img src="Logo.png" alt="SkyWing Logo">
+<h2>SkyWing</h2>
 </div>
 
-<button class="option-btn upi" onclick="showUPI()">
-Pay via UPI
-</button>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/menu">Menu</a></li>
+<li><a href="/gallery">Gallery</a></li>
+<li><a href="/offers">Offers</a></li>
+<li><a href="/hours">Hours & Location</a></li>
+<li><a href="/reviews">Reviews</a></li>
+</ul>
+</nav>
 
-<button class="option-btn qr" onclick="showQR()">
-Scan QR Code
-</button>
+<!-- FORM -->
+<section class="form-section">
 
-<button class="option-btn card" onclick="window.location.href='card-payment.html'">
-Pay via Card
-</button>
+<div class="form-box">
+<h2>Book a Table</h2>
 
-<!-- ✅ UPI Section -->
-<div id="upiSection" style="display:none; margin-top:20px;">
-<p><b>UPI ID:</b> 8309706581@ibl</p>
-
-<!-- Direct UPI Payment Link -->
-<a href="upi://pay?pa=8309706581@ibl&pn=SkyWingRestaurant&am=200&cu=INR">
-<button class="option-btn upi">Open UPI App</button>
-</a>
-
-<br>
-<button onclick="paymentSuccess()">I Have Paid</button>
-</div>
-
-<!-- ✅ QR Section -->
-<div id="qrSection" class="qr-box">
-<p>Scan this QR using Google Pay / PhonePe / Paytm</p>
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=8309706581@ibl&pn=SkyWingRestaurant&am=200&cu=INR">
-
-<br><br>
-<button onclick="paymentSuccess()">I Have Paid</button>
-</div>
+<form action="/submit_registration" method="post">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email Address" required>
+<input type="tel" name="phone" placeholder="Phone Number"  length="10" required>
+<input type="date" name="date" required>
+<input type="time" name="time" required>
+<input type="number" name="guests" placeholder="Number of Guests" min="1" max="20">
+<button type="submit">Reserve Now</button>
+</form>
 
 </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>Contact Information</h3>
+<p>📍 Wayanad, Kerala</p>
+<p>📞 +91 8456324568</p>
+<p>📧 skywingrestaurant@gmail.com</p>
 </div>
 
-<script>
-function showUPI(){
-document.getElementById("upiSection").style.display="block";
-document.getElementById("qrSection").style.display="none";
-}
+<div class="footer-box">
+<h3>Follow Us</h3>
+<a href="#">Instagram</a><br>
+<a href="#">Twitter</a><br>
+<a href="#">YouTube</a>
+</div>
 
-function showQR(){
-document.getElementById("qrSection").style.display="block";
-document.getElementById("upiSection").style.display="none";
-}
+<div class="footer-box">
+<h3>Legal</h3>
+<a href="#">Privacy Policy</a><br>
+<a href="#">Terms & Conditions</a><br>
+<a href="#">Refund Policy</a>
+</div>
 
-function paymentSuccess(){
-alert("Payment Confirmed! Reservation Completed.");
-window.location.href="success.html";
-}
-</script>
+</div>
+
+<div class="footer-bottom">
+© 2026 SkyWing Restaurant | All Rights Reserved
+</div>
+</footer>
 
 </body>
 </html>

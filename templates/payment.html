@@ -74,7 +74,6 @@ height:200px;
 <body>
 
 <div class="payment-container">
-
 <div class="payment-box">
 
 <h2>Select Payment Method</h2>
@@ -95,16 +94,25 @@ Scan QR Code
 Pay via Card
 </button>
 
-<!-- UPI Section -->
+<!-- ✅ UPI Section -->
 <div id="upiSection" style="display:none; margin-top:20px;">
-<p><b>UPI ID:</b> skywing@upi</p>
+<p><b>UPI ID:</b> 8309706581@ibl</p>
+
+<!-- Direct UPI Payment Link -->
+<a href="upi://pay?pa=8309706581@ibl&pn=SkyWingRestaurant&am=200&cu=INR">
+<button class="option-btn upi">Open UPI App</button>
+</a>
+
+<br>
 <button onclick="paymentSuccess()">I Have Paid</button>
 </div>
 
-<!-- QR Section -->
+<!-- ✅ QR Section -->
 <div id="qrSection" class="qr-box">
-<p>Scan this QR using any UPI App</p>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=skywing@upi&pn=SkyWing&am=200">
+<p>Scan this QR using Google Pay / PhonePe / Paytm</p>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=8309706581@ibl&pn=SkyWingRestaurant&am=200&cu=INR">
+
 <br><br>
 <button onclick="paymentSuccess()">I Have Paid</button>
 </div>
@@ -124,7 +132,7 @@ document.getElementById("upiSection").style.display="none";
 }
 
 function paymentSuccess(){
-alert("Payment Confirmed!");
+alert("Payment Confirmed! Reservation Completed.");
 window.location.href="success.html";
 }
 </script>

@@ -23,22 +23,26 @@ def offers():
 @app.route('/login')
 def Login():
     return render_template("Login.html")
+@app.route('/payment')
+def payment():
+    return render_template("payment.html")
 @app.route('/submit_registration',methods=['POST'])
 def registration():
     name=request.form['name']
     email=request.form['email']
-    password=request.form['password']
-    confirm_password=request.form['confirm_password']
-    if password!=confirm_password:
-        return "password and Confirm password do not match"
+    phone=request.form['phone']
+    date=request.form['date']
+    time=request.form['time']
+    guests=request.form['guests']
+    
     cursor=connection.cursor()
-    query="insert into users(name,email,password) values(%s,%s,%s)"
-    cursor.execute(query,(name,email,password))
+    query="insert into Customers(name,email,phone,Date_of_reserved,time_of_reserved,No_of_Guests) values(%s,%s,%s,%s,%s,%s)"
+    cursor.execute(query,(name,email,phone,date,time,guests))
     connection.commit()
-    cursor.execute("select * from users")
+    cursor.execute("select * from Customers")
     data=cursor.fetchall()
     cursor.close()
     connection.close()
-    return render_template("users.html",data=data)
+    return render_template("payment.html",data=data)
 if __name__=="__main__":
     app.run(debug=True)
